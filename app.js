@@ -496,7 +496,7 @@ addEventListener('online', paint); addEventListener('offline', paint);
 (async function () {
   paint();
   try {
-    [store, CAT0, PROD] = await Promise.all([abrirAlmacen(), getJSON('data/catalog.json'), getJSON('data/products.json')]);
+    [store, CAT0, PROD] = await Promise.all([abrirAlmacen(), getJSON('catalog.json'), getJSON('products.json')]);
     CFG = await store.get('config', 'main'); S.ses = loadSes();
     if (!CFG) S.view = (store.mode === 'demo' || location.hash === '#setup') ? 'setup' : 'nocfg'; else { S.view = new URLSearchParams(location.search).get('v') || 'hoy'; await loadOps(); }
     if (S.view === 'hoy') await ensureHoy();
